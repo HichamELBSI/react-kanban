@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from "react";
+import { ThemeProvider } from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { theme } from "./libs";
+import Dashboard from "./dashboard";
+import GlobalState from './context/GlobalState';
+
+const App = () => (
+  // Styled-components theme.
+  <ThemeProvider theme={theme}>
+    <GlobalState>
+      <Dashboard />
+    </GlobalState>
+  </ThemeProvider>
+);
 
 export default App;
